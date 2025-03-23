@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shreyas Sports Activities</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #ffffff; /* White background */
+            color: #333; /* Dark text for contrast */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: url('https://via.placeholder.com/1500x800') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff; /* White text for hero section */
+        }
+
+        .hero-section h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 128, 0, 0.8); /* Green glow */
+        }
+
+        .hero-section p {
+            font-size: 1.5rem;
+            margin: 20px 0;
+        }
+
+        .btn-neon {
+            background: #008000; /* Green background */
+            border: none;
+            padding: 10px 30px;
+            color: #fff;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-neon:hover {
+            box-shadow: 0 0 10px #008000, 0 0 40px #008000, 0 0 80px #008000; /* Green glow */
+        }
+
+        /* Logo */
+        .logo {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+
+        /* Image Slider */
+        .slider {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .slide img {
+            width: 90%;
+            height: auto;
+            margin-left: 5%;
+            border-radius: 10px;
+        }
+
+        /* Table Styles */
+        .table-futuristic {
+            background: rgba(0, 128, 0, 0.1); /* Light green background */
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .table-futuristic th, .table-futuristic td {
+            border: none;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .table-futuristic th {
+            background: rgba(0, 128, 0, 0.2); /* Slightly darker green */
+        }
+
+        /* Sections */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #008000; /* Green text */
+        }
+
+        /* Batch Timings */
+        .batch-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .batch-section ul li {
+            background: rgba(0, 128, 0, 0.1); /* Light green background */
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Contact Section */
+        .contact-section p {
+            font-size: 1.2rem;
+        }
+
+        .social-link {
+            color: #008000; /* Green text */
+            text-decoration: none;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            text-shadow: 0 0 10px #008000, 0 0 20px #008000; /* Green glow */
+        }
+
+        /* Download Form Section */
+        .download-form-section {
+            background: rgba(0, 128, 0, 0.1); /* Light green background */
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .download-form-section p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .download-btn {
+            background: #008000; /* Green background */
+            border: none;
+            padding: 10px 30px;
+            color: #fff;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            box-shadow: 0 0 10px #008000, 0 0 40px #008000, 0 0 80px #008000; /* Green glow */
+        }
+
+        /* Camp Activity Section */
+        .camp-section {
+            background: rgba(0, 128, 0, 0.1); /* Light green background */
+            padding: 40px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .camp-section h3 {
+            color: #008000; /* Green text */
+            margin-bottom: 20px;
+        }
+
+        .camp-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .camp-section ul li {
+            background: rgba(0, 128, 0, 0.1); /* Light green background */
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Notice Section */
+        .notice-section {
+            background: rgba(0, 128, 0, 0.1); /* Light green background */
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .notice-section h3 {
+            color: #008000; /* Green text */
+            margin-bottom: 15px;
+        }
+
+        .notice-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .notice-section ul li {
+            background: rgba(0, 128, 0, 0.1); /* Light green background */
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* All Activity Fees Section */
+        .activity-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .activity-btn {
+            background: #008000; /* Green background */
+            border: none;
+            padding: 10px 20px;
+            color: #fff;
+            font-size: 1rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .activity-btn:hover {
+            box-shadow: 0 0 10px #008000, 0 0 40px #008000, 0 0 80px #008000; /* Green glow */
+        }
+
+        /* Side-Scrolling Fees Section */
+        .fee-scroll-container {
+            width: 100%;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            white-space: nowrap;
+            margin-bottom: 30px;
+            padding-bottom: 20px; /* Space for scrollbar */
+        }
+
+        .fee-scroll-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .fee-scroll-container::-webkit-scrollbar-thumb {
+            background: #008000; /* Green scrollbar */
+            border-radius: 10px;
+        }
+
+        .fee-scroll-container::-webkit-scrollbar-track {
+            background: rgba(0, 128, 0, 0.1); /* Light green track */
+        }
+
+        .fee-section {
+            display: inline-block;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            background: rgba(0, 128, 0, 0.05); /* Very light green background */
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+
+        .fee-section:last-child {
+            margin-right: 0;
+        }
+
+        .fee-section h3 {
+            color: #008000; /* Green text */
+            margin-bottom: 15px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-section p {
+                font-size: 1.2rem;
+            }
+
+            .btn-neon {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .table-futuristic th, .table-futuristic td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <img src="https://shreyasfoundation.in/wp-content/uploads/2019/12/sf-logo.svg" alt="Shreyas Logo" class="logo">
+            <h1>Shreyas Sports Activities</h1>
+            <p>Join us for a healthier and active lifestyle!</p>
+            <a href="#sports" class="btn btn-neon">Explore Activities</a>
+        </div>
+    </section>
+
+    <!-- Image Slider -->
+    <section class="section">
+        <div class="container">
+            <h2>Gallery</h2>
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide">
+                        <img src="https://shreyasfoundation.in/wp-content/uploads/2019/12/15-1.jpg" alt="Swimming">
+                    </div>
+                    <div class="slide">
+                        <img src="https://shreyasfoundation.in/wp-content/uploads/2019/12/04.jpg" alt="Skating">
+                    </div>
+                    <div class="slide">
+                        <img src="https://shreyasfoundation.in/wp-content/uploads/2019/12/IMG-20170427-WA0014.jpg" alt="Football">
+                    </div>
+                    <div class="slide">
+                        <img src="https://shreyasfoundation.in/wp-content/uploads/2022/05/1.png" alt="Cricket">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activity Section with Hyperlinks -->
+    <section id="activities" class="section">
+        <div class="container">
+            <h2>Activities</h2>
+            <div class="activity-buttons">
+                <a href="#swimming-fees" class="activity-btn">Swimming</a>
+                <a href="#skating-fees" class="activity-btn">Skating</a>
+                <a href="#football-fees" class="activity-btn">Football</a>
+                <a href="#cricket-fees" class="activity-btn">Cricket</a>
+                <!-- Add more buttons as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Side-Scrolling Fees Section -->
+    <section class="section">
+        <div class="container">
+            <div class="fee-scroll-container" id="fee-scroll-container">
+                <!-- Swimming Fees Section -->
+                <div id="swimming-fees" class="fee-section">
+                    <h3>Swimming Fees</h3>
+                    <div class="table-responsive">
+                        <table class="table table-futuristic">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Days per Week</th>
+                                    <th>Monthly Fee</th>
+                                    <th>3-Month Fee</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Beginner</td>
+                                    <td>6</td>
+                                    <td>₹3,850</td>
+                                    <td>₹10,500</td>
+                                </tr>
+                                <tr>
+                                    <td>Intermediate</td>
+                                    <td>6</td>
+                                    <td>₹4,840</td>
+                                    <td>₹13,200</td>
+                                </tr>
+                                <tr>
+                                    <td>Advanced</td>
+                                    <td>6</td>
+                                    <td>₹5,225</td>
+                                    <td>₹14,250</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Skating Fees Section -->
+                <div id="skating-fees" class="fee-section">
+                    <h3>Skating Fees</h3>
+                    <div class="table-responsive">
+                        <table class="table table-futuristic">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Days per Week</th>
+                                    <th>Monthly Fee</th>
+                                    <th>3-Month Fee</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Beginner</td>
+                                    <td>6</td>
+                                    <td>₹1,320</td>
+                                    <td>₹3,300</td>
+                                </tr>
+                                <tr>
+                                    <td>Intermediate</td>
+                                    <td>6</td>
+                                    <td>₹1,500</td>
+                                    <td>₹3,750</td>
+                                </tr>
+                                <tr>
+                                    <td>Advanced</td>
+                                    <td>6</td>
+                                    <td>₹2,100</td>
+                                    <td>₹5,250</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Football Fees Section -->
+                <div id="football-fees" class="fee-section">
+                    <h3>Football Fees</h3>
+                    <div class="table-responsive">
+                        <table class="table table-futuristic">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Days per Week</th>
+                                    <th>Monthly Fee</th>
+                                    <th>3-Month Fee</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Beginner</td>
+                                    <td>6</td>
+                                    <td>₹2,100</td>
+                                    <td>₹5,250</td>
+                                </tr>
+                                <tr>
+                                    <td>Intermediate</td>
+                                    <td>6</td>
+                                    <td>₹2,340</td>
+                                    <td>₹5,850</td>
+                                </tr>
+                                <tr>
+                                    <td>Advanced</td>
+                                    <td>6</td>
+                                    <td>₹2,580</td>
+                                    <td>₹6,450</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Cricket Fees Section -->
+                <div id="cricket-fees" class="fee-section">
+                    <h3>Cricket Fees</h3>
+                    <div class="table-responsive">
+                        <table class="table table-futuristic">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Days per Week</th>
+                                    <th>Monthly Fee</th>
+                                    <th>3-Month Fee</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Beginner</td>
+                                    <td>6</td>
+                                    <td>₹1,930</td>
+                                    <td>₹4,830</td>
+                                </tr>
+                                <tr>
+                                    <td>Intermediate</td>
+                                    <td>6</td>
+                                    <td>₹2,470</td>
+                                    <td>₹6,180</td>
+                                </tr>
+                                <tr>
+                                    <td>Advanced</td>
+                                    <td>6</td>
+                                    <td>₹2,470</td>
+                                    <td>₹6,180</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notice Section -->
+    <section id="notice" class="section">
+        <div class="container">
+            <h2>Notice</h2>
+            <div class="notice-section">
+                <h3>Important Notice Regarding Fees</h3>
+                <ul>
+                    <li>Fees must be paid in full at the time of registration.</li>
+                    <li>No refunds will be issued after the registration is completed.</li>
+                    <li>For those joining in beginners and moving to intermediate, the difference in fees will be charged on a pro-rata basis.</li>
+                    <li>Swimming pool remains closed from December to February.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Batch Timings Section -->
+    <section id="batch-timings" class="section batch-section">
+        <div class="container">
+            <h2>Batch Timings</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Swimming</h3>
+                    <ul>
+                        <li>6:15 AM - 7:00 AM: General Swim</li>
+                        <li>7:15 AM - 8:00 AM: Beginners</li>
+                        <!-- Add more timings as needed -->
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h3>Skating</h3>
+                    <ul>
+                        <li>5:30 PM - 6:15 PM: Beginners</li>
+                        <li>6:15 PM - 7:00 PM: Intermediate</li>
+                        <!-- Add more timings as needed -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Camp Activity Section -->
+    <section id="camp" class="section">
+        <div class="container">
+            <h2>Camp Activities</h2>
+            <div class="camp-section">
+                <h3>Camp Details</h3>
+                <ul>
+                    <li><strong>Age Group:</strong> 7 to 16 Years</li>
+                    <li><strong>Fees:</strong> ₹5,000 per participant</li>
+                    <li><strong>Duration:</strong> Selected Weekends</li>
+                </ul>
+                <div class="download-form-section">
+                    <p>Download the camp registration form to join Shreyas Camp Activities.</p>
+                    <a href="path/to/camp-registration-form.pdf" download class="btn download-btn">Download Camp Form</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Form Section -->
+    <section id="download-form" class="section">
+        <div class="container">
+            <h2>Download Form</h2>
+            <div class="download-form-section">
+                <p>Download the registration form to join Shreyas Sports Activities.</p>
+                <a href="path/to/registration-form.pdf" download class="btn download-btn">Download Form</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Location:</strong> Near Manek Baug, Ambawadi</p>
+                    <p><strong>Phone:</strong> 88660 35228</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Follow Us:</strong></p>
+                    <a href="#" class="social-link">Facebook</a>
+                    <a href="#" class="social-link">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Side-scrolling for fees section
+        function scrollToFee(sectionId) {
+            const feeSection = document.getElementById(sectionId);
+            const feeScrollContainer = document.getElementById('fee-scroll-container');
+            feeScrollContainer.scrollTo({
+                left: feeSection.offsetLeft,
+                behavior: 'smooth'
+            });
+        }
+
+        // Automatic Image Slider
+        let slideIndex = 0;
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function showNextSlide() {
+            slideIndex = (slideIndex + 1) % totalSlides;
+            slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+        }
+
+        setInterval(showNextSlide, 3000); // Change slide every 3 seconds
+    </script>
+</body>
+</html>
